@@ -1,0 +1,33 @@
+<div id="crearCuenta">
+	<div class="form">
+	<%= form_for @usr, url:"crear" do |f| %>
+	<div id="signup">
+	 <div class="header">
+            <h3>Crear usuario</h3>
+        </div>
+        <div class="sep"></div>
+         <div class="inputs">
+         <% @usr.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+     	 <% end %>
+		Email
+		<%= f.email_field :email,placeholder: "Email",class:"campos"%>
+				Contraseña
+		<%= f.password_field :password,placeholder: "password",class:"campos"%>
+		Nombre
+		<%= f.text_field :nombre,placeholder: "Nombre",class:"campos"%>
+		Primer apellido
+		<%= f.text_field :primerApellido,placeholder: "primerApellido",class:"campos"%>
+		Segundo Apellido
+		<%= f.text_field :segundoApellido,placeholder: "segundoApellido",class:"campos"%>
+		Telefono
+		<%= f.number_field :telefono,placeholder: "Telefono",class:"campos"%>
+		Direccion
+		<%= f.text_field :direccion,placeholder: "Direccion",class:"campos"%>
+		</div>
+		<%= f.submit "Crear cuenta",id:"submit"%>	
+		<%end%>	
+	</div>
+	</div>
+	</div>
+

@@ -1,0 +1,61 @@
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <% nombres ={'Diego Ruiz' =>'D.R', 'Elisa Ruiz' => 'E.R', 'Manuel Ruiz' => 'M.R'} %>
+    <fieldset>
+      <% lista = nombres.sort %>
+      <% lista.each do |nombre | %>
+      <%= f.radio_button :nombre, nombre[1] %>
+      <label for="<%= nombre[1] %>"><%= nombre[0] %></label>
+      <% end %>
+    </fieldset>
+    <br/>
+    <% lista2 = nombres.sort %>
+    <%= f.label :nombre %>:
+    <%= f.select :nombre,lista2 %>
+     
+  </div>
+  <br/>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :programa %><br />
+    <%= f.check_box :programa %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday, start_year: 1990, end_year: 2000 %>
+  </div>
+  <div class="field">
+    <%= f.label :work_time %><br />
+    <%= f.time_select :work_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

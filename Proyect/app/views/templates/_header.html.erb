@@ -1,0 +1,68 @@
+<div id="header1">
+	<nav id="dropdown">
+		<ul>
+			<li class="current-menu-item"><a href="#">Idioma<%=image_tag "downarrow.gif" %></a>
+				<ul>
+					<li><%=image_tag "espana.gif" %><a href="?lang=es">Español</a></li>
+					<li><%=image_tag "granBretana" %><a href="?lang=en">Ingles</a></li>
+				</ul></li>
+			<li><a href="#">Estilos<%=image_tag "downarrow.gif" %></a>
+				<ul>
+					<li><%=image_tag "gris.gif" %><a href="?theme=default">Por defecto</a></li>
+					<li><%=image_tag "azul.jpg" %><a href="?theme=blue">Azul</a></li>
+					<li><%=image_tag "rojo.gif" %><a href="?theme=red">Rojo</a></li>
+				</ul></li>
+		</ul>
+	</nav>
+	<%if $usuario != nil %>
+	<div id="sesion">
+		<a href="/cuenta/cuenta"><%= $usuario.email %></a> 
+		&nbsp;|&nbsp;
+		 <a href="/sesion/cerrarSesion">Cerrar sesion</a>
+	</div>
+	<%else%>
+	<div id="sesion">
+		<a href="/sesion/iniciarSesion">Iniciar sesion</a> 
+		&nbsp;|&nbsp;
+		 <a href="/crear_cuenta/crearCuenta">Crear cuenta</a>
+	</div>
+	<%end%>
+</div>
+
+<div id="header2">
+	<div id="header2L">
+		<%=image_tag "baner1.png" %>
+	</div>
+	<div id="header2R">
+	</div>
+	<div id="searchcontainer">
+		<div id="sleft">
+			<%=image_tag "searchbgleft.jpg" %>
+		</div>
+		<form id="form1" name="buscar" method="get" action="#">
+		<div id="smiddle">
+			<div id="search">Buscar</div>
+			<div id="sbox">
+					<input type="text" name="search"
+						style="width: 100px; height: 15px; border: 1px solid #B2B2B1;" />
+			</div>
+			<div id="sbutton">
+				<label> <%=image_tag "searchbutton.jpg" %>
+				</label>
+			</div>
+		</div>
+		</form>
+		<div id="sright">
+			<%=image_tag "searchbgright.jpg" %>
+		</div>
+	</div>
+</div>
+<div id="menuH">
+	<ul>
+		<li class="iconos"><div class="iconosHeader"><%=link_to image_tag("home.png"),"/" %></div></li>
+		<li><a href="/cuenta/cuenta"><span>Cuenta</span></a></li>
+		<li><a href="/ayuda/ayuda"><span>Ayuda</span></a></li>
+		<li><a href="/acerca/acerca"><span>Acerca de</span></a></li>
+		<li class="iconos"><div class="iconosHeader"><a href="/carrito/carrito"><%=image_tag "carrito.png" %></a></div></li>
+	</ul>
+</div>

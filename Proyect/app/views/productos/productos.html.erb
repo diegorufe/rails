@@ -1,0 +1,27 @@
+<div id="listaProductos">
+<%if (@productos.length > 0) %>
+<div class="form2">
+	<div id="signup">
+	<table>
+	<tbody>
+	<tr>
+		<th>Nombre</th>
+		<th>Precio</th>
+		<th></th>
+	</tr>
+	<% @productos.each do |producto| %>
+		<tr>
+			<td><%=link_to producto.nombre,"/producto/producto?producto=#{producto.id}"%></td>
+			<td><%=producto.precio%> €</td>
+			<td><%=image_tag producto.imagen %></td>
+		</tr>
+	<%end%>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	</c:if>
+<%else%>
+	<p>No hay productos</p>
+<%end%>
+</div>

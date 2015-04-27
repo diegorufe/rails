@@ -1,0 +1,31 @@
+	<div id="bodyHome">
+		<div id="containerPhoto">
+			<%=image_tag "body1.jpg", class: 'photo' %>
+			<%=image_tag "body2.jpg", class: 'photo'%>
+			<%=image_tag "body3.jpg", class: 'photo'%>
+			<%=image_tag "body4.jpg", class: 'photo'%>
+		</div>
+		<div id="productos">
+			<p>Recomendades </p>
+			<div class="linea"></div>
+			<div id="triangles"></div>
+			<% @productosRecomendados.each do |recomendado| %>
+			<div class="producto">
+				<div><%=image_tag recomendado.imagen %></div>
+				<div><%=link_to recomendado.nombre,"/producto/producto?producto=#{recomendado.id}"%></div>
+			</div>
+			<%end%>
+		</div>
+		<div id="productos">
+			<p>+Vendidos</p>
+			<div class="linea"></div>
+			<div id="triangles"></div>
+			<% @productosMasVendidos.each do |vendido| %>
+			<div class="producto">
+				<div><%=image_tag vendido.imagen %></div>
+				<div><%=link_to vendido.nombre,"/producto/producto?producto=#{vendido.id}"%></div>
+			</div>
+			<%end%>
+		</div>
+	</div>
+

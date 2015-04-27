@@ -1,0 +1,29 @@
+<div id="listaProductos">
+<% if @pedidos.length > 0%>
+<div class="form2">
+	<div id="signup">	
+	<div class="header">
+            <h3>Lista de pedidos</h3>
+        </div>
+        <div class="sep"></div>
+	<table>
+	<tbody>
+	
+	<tr>
+		<th>Id pedido</th>
+		<th>Fecha pedido</th>
+	</tr>
+	<% @pedidos.each do |pedido| %>
+	<tr>
+		<td><a href="pedido?id=${pedido.id}"><%=pedido.id%></a></td>
+		<td><%=pedido.fecha%></td>
+	</tr>
+	<%end%>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	<%else%>
+		<p>No hay pedidos</p>
+	<%end%>
+</div>

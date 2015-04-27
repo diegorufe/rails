@@ -1,0 +1,37 @@
+<div id="listaProductos">
+<%if $carrito != nil%>
+<div class="form2">
+	<div id="signup">	
+		<display:table name="sessionScope.carrito" cellpadding="8px"  id="carritoProducto" pagesize="15"  varTotals="myTotalValue">
+				<display:column titleKey="label.eliminar">
+					<input type="checkbox" name="eliminar"
+						value='<c:out value="${carritoProducto.producto.id}"/>' />
+				</display:column>
+				<display:column property="nombreProducto" titleKey="label.nombre"
+					  sortable="false" />
+				<display:column titleKey="label.cantidad" sortable="false" property="cantidad">
+				</display:column>
+				<display:column property="precioProducto"
+					titleKey="label.precio" sortable="false"
+					format="{0,number,currency}"/>
+				<display:column property="importe"
+					titleKey="label.importe" sortable="false"
+					format="{0,number,currency}" total="true"/>
+				<display:footer>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><spring:message code="label.total"/></td>
+					<td><c:out value="${myTotalValue.column5}" /> <spring:message code="label.euros"/></td>
+				</display:footer>
+			</display:table>
+			<c:set var="fin" value="true"/>
+			<form:form   action="carrito/comprar/${fin}" method='POST'>
+				<input id="submit"  type="submit" value="<spring:message code="label.finalizarpedido"/>">	
+			</form:form>
+	</div>
+	</div>
+	<%else%>
+		<p>No hay productos en el carrito</p>
+	<%end%>
+</div>

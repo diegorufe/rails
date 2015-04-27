@@ -1,0 +1,17 @@
+<div id="producto">
+<div class="form">
+<div id="signup">
+	 <div class="header">
+            <h3><%=@producto.nombre%></h3>
+        </div>
+        <div class="sep"></div>
+        <div class="imagen">
+        	<%=image_tag @producto.imagen %>
+        </div>
+        <p><%=raw @producto.descripcion%></p>
+        <div class="precio">
+		<p>Precio:  <%=@producto.precio%> €</p>
+		</div>
+</div>
+</div>
+</div>

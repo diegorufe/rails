@@ -1,0 +1,40 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Bio</th>
+    <th>Programa</th>
+    <th>Birthday</th>
+    <th>Work time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% numero = "1234" %>
+  <% if is_number?(numero) %>
+    <b><%= numero %></b>
+  <%else%>
+    <b>Es una cadena</b>
+  <%end%>    
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.nombre %></td>
+    <td><%= user.password %></td>
+    <td><%= user.email %></td>
+    <td><%= user.bio %></td>
+    <td><%= user.programa %></td>
+    <td><%= user.birthday %></td>
+    <td><%= user.work_time %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

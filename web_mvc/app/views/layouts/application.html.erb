@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebMvc</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+<nav class="be-black white large-padding">
+<ul class="no-list row center-xs middle-xs">
+<li class="col-md"><%= link_to 'Principal',root_path%></li>
+<li class="col-md"><%= link_to 'Lista de articulos','/articulos'%></li>
+<li class="col-md"><%= link_to 'Añadir articulo','/articulos/new'%></li>
+<% if usuario_signed_in? %>
+	<li class="col-md">
+	<%= link_to "Cerrar sesión", destroy_usuario_session_path, method: :delete%>
+	</li>
+<% else %>
+	<li class="col-md">
+	<%= link_to "Iniciar sesión", new_usuario_session_path%>
+	</li>
+	<li class="col-md">
+	<%= link_to "Crear cuenta", new_usuario_registration_path%>
+	</li>
+<%end%>
+</ul>
+</nav>
+</header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>

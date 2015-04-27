@@ -1,0 +1,20 @@
+	<div id="crearCuenta">
+	<div class="form">
+	<div id="signup">
+	 <div class="header">
+            <h3>Datos del usuario</h3>
+        </div>
+        <div class="sep"></div>
+         <div class="inputs">
+         <p>Email: <%=$usuario.email%></p>
+         <p>Cotraseña: <%=$usuario.password%></p>
+         <p>Nombre: <%=$usuario.nombre%></p>
+         <p>Primer apellido: <%=$usuario.primerApellido%></p>
+         <p>Segundo apellido: <%=$usuario.segundoApellido%></p>
+         <p>Telefono: <%=$usuario.telefono%></p>
+         <p>Direccion: <%=$usuario.direccion%></p>
+		</div>
+		<a id="submit" href="editarDatosUsuario?id=${usuario.id}">Editar datos</a>	
+	</div>
+	</div>
+	</div>

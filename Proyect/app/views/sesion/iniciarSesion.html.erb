@@ -1,0 +1,22 @@
+	<div id="iniciarSesion">
+	<div class="form">
+	<div id="signup">
+	<%= form_for @usr, url:"login" do |f| %>
+	 <div class="header">
+            <h3>Iniciar sesion</h3>
+        </div>
+        <div class="sep"></div>
+         <div class="inputs">
+         <% if @errors != nil  %>
+          <div  class="incorrecto">
+			<p><%= @errors%></p>
+		  </div>
+		<%end%>
+			<%= f.email_field :email,placeholder: "Email",class:"campos"%>
+			<%= f.password_field :password,placeholder: "password",class:"campos"%>
+		</div>
+		<%= f.submit "Iniciar sesion",id:"submit"%>	
+	<%end%>
+	</div>
+	</div>
+	</div>
